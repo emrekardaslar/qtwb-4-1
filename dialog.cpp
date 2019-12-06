@@ -25,7 +25,7 @@ void Dialog::on_comboBox_currentIndexChanged(int index)
 
 void Dialog::on_btnSave_clicked()
 {
-    QSettings settings;
+    QSettings settings("MySoft", "MyApp");
     settings.setValue("settings", ui->comboBox->currentIndex());
 
     QMessageBox::information(this,"Saved","Selection saved, please close and re-open the application");
@@ -43,7 +43,7 @@ void Dialog::init()
 
 void Dialog::load()
 {
-    QSettings settings;
+    QSettings settings("MySoft", "MyApp");
     QVariant value = settings.value("settings",0);
 
     bool ok;
